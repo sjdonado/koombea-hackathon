@@ -1,0 +1,10 @@
+AllCops:   
+  Exclude:     
+    - 'db/**/*'
+    - 'config/**/*' 
+    - 'script/**/*'
+    - 'bin/*'
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Documentation:
+  Enabled: false

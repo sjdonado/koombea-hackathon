@@ -1,12 +1,12 @@
 module V1
   class ProfileController < BaseController
     before_action :authenticate
-  
+
     # GET /profile
     def show
       render json: @current_user
     end
-  
+
     # PATCH/PUT /profile
     def update
       if @current_user.update(profile_params)
@@ -26,9 +26,10 @@ module V1
     end
 
     private
-      # Only allow a trusted parameter "white list" through.
-      def profile_params
-        params.permit(:name, :email, :address, :phone)
-      end
+
+    # Only allow a trusted parameter "white list" through.
+    def profile_params
+      params.permit(:name, :email, :address, :phone)
+    end
   end
 end
