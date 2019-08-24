@@ -5,9 +5,20 @@ module V1
 
     # GET /contacts
     def index
-      @contacts = Contact.all
+      @contacts = Contact.where(owner: @current_user)
 
       render json: @contacts
+    end
+
+    # GET /contacts/details
+    def details
+      @contacts = Contact.where(owner: @current_user)
+
+      res = @contacts.map do |contact|
+        ContactDetailsSerializer.new(contact).as_json
+      end
+
+      render json: res
     end
 
     # GET /contacts/1
@@ -53,7 +64,8 @@ module V1
     #  type -> kind, social_networks -> social_networks_attributes )
     def parsed_contact_params
       data = contact_params
-      data[:user] = @current_user
+      data[:owner] = @current_user
+      data[:user] = User.find_by(email: data[:email])
       data[:social_networks_attributes] = data.delete(:social_networks)
       data[:social_networks_attributes].each do |social_network|
         social_network[:kind] = social_network.delete(:type)

@@ -1,0 +1,437 @@
+{
+	"info": {
+		"_postman_id": "afd1ff36-12e9-4684-a869-e4a447ffac84",
+		"name": "koomnbea-hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users sign_up",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Juan Rodriguez\",\n\t\"email\": \"jsrd98@gmail.com\",\n\t\"password\": \"12345\",\n\t\"password_confirmation\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/users/sign_up",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users sign_in",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"jsrd98@gmail.com\",\n\t\"password\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/users/sign_in",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"sign_in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users sign_out",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{api_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/users/sign_out",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"sign_out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{api_key}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 1,\n    \"name\": \"Testing\",\n    \"email\": \"testing@est\",\n    \"address\": \"Testing address\",\n    \"phone\": \"3205282018\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/profile",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Profile update photo",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/Users/sjdonado/Downloads/1_T6uSXLTZpyIqnk43SYJ5QQ.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/profile/photo",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"profile",
+						"photo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Users create my contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"My contact\",\n\t\"email\": \"contact@test.com\",\n\t\"password\": \"12345\",\n\t\"password_confirmation\": \"12345\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/users/sign_up",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"users",
+						"sign_up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts index",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contacts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts index details",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contacts-details",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts-details"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts show",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contacts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"The contact\",\n\t\"email\": \"contact@test.com\",\n\t\"social_networks\": [\n\t\t{\n\t        \"type\": \"Facebook\",\n\t        \"url\": \"https://www.facebook.com/the.contact\",\n\t        \"number\": \"+1898526354\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{url}}/contacts",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Testing\",\n\t\"email\": \"test@test.com\",\n\t\"social_networks\": [\n\t\t{\n\t        \"type\": \"Facebook\",\n\t        \"url\": \"https://www.facebook.com/test\",\n\t        \"number\": \"+1898526354\"\n\t\t}\n\t]\n}"
+				},
+				"url": {
+					"raw": "{{url}}/contacts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contacts detroy",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "{{api_key}}"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/contacts/1",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"contacts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7ea4f6a1-7bbc-4cac-a9cb-65d123b25e03",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "81231ab4-d4a4-40c1-9042-50091922e5ad",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "81ccf090-3d62-4f19-9ce4-6f312ec4c7ca",
+			"key": "url",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "2917200b-8d51-499a-8265-300af12aec3a",
+			"key": "api_key",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

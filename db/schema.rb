@@ -41,9 +41,12 @@ ActiveRecord::Schema.define(version: 2019_08_24_164502) do
     t.string "email"
     t.string "address"
     t.string "phone"
-    t.bigint "user_id"
+    t.integer "owner_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_contacts_on_email", unique: true
+    t.index ["owner_id"], name: "index_contacts_on_owner_id"
     t.index ["user_id"], name: "index_contacts_on_user_id"
   end
 

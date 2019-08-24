@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :contacts
+
+    get '/contacts-details', to: 'contacts#details'
   end
 end
