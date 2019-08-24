@@ -11,5 +11,7 @@ Rails.application.routes.draw do
       put '/', to: 'profile#update'
       put '/photo', to: 'profile#update_photo'
     end
+
+    resources :contacts
   end
 end
