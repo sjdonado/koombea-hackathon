@@ -19,7 +19,7 @@ module V1
     # PATCH/PUT /profile/photo
     def update_photo
       if @current_user.update(photo: params[:photo])
-        render json: @current_user
+        render json: {}
       else
         render_error(:unprocessable_entity, nil, @current_user.errors)
       end

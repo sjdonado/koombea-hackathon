@@ -8,7 +8,7 @@ class ApiError < StandardError
   @errors = {
     0 => 'Password and confirm_password does not match',
     1 => 'Invalid token',
-    2 => 'User not found',
+    2 => 'User not found'
   }
 
   def initialize(status, error = nil, message = nil)
