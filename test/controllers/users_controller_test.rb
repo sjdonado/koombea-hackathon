@@ -5,34 +5,35 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     @user = users(:one)
   end
 
-  test 'should get index' do
-    get users_url, as: :json
-    assert_response :success
-  end
-
-  test 'should create user' do
+  test 'should sign up' do
     assert_difference('User.count') do
-      post users_url, params: { user: {} }, as: :json
+      post '/v1/users/sign_up', params: {
+        name: 'Test user',
+        email: 'user@test.com',
+        password: '12345',
+        password_confirmation: '12345'
+      }, as: :json
     end
 
     assert_response 201
+    assert_matches_json_schema response, 'users_sign_up'
   end
 
-  test 'should show user' do
-    get user_url(@user), as: :json
-    assert_response :success
-  end
+  test 'should sign in' do
+    post '/v1/users/sign_in', params: {
+      email: 'jsrd98@gmail.com',
+      password: '12345'
+    }, as: :json
 
-  test 'should update user' do
-    patch user_url(@user), params: { user: {} }, as: :json
     assert_response 200
+    assert_matches_json_schema response, 'users_sign_in'
   end
 
-  test 'should destroy user' do
-    assert_difference('User.count', -1) do
-      delete user_url(@user), as: :json
-    end
+  test 'should sign out' do
+    token = JsonWebToken.encode(user_id: @user.id)
+    post '/v1/users/sign_out', headers: {'Authorization': token }
 
-    assert_response 204
+    assert_response 200
+    assert_equal "{}", response.body
   end
 end

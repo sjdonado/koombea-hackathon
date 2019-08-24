@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft-06/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "address": {
+      "type": [ "string", "null" ]
+    },
+    "phone": {
+      "type": [ "string", "null" ]
+    },
+    "photo_url": {
+      "type": [ "string", "null" ]
+    }
+  }
+}

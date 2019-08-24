@@ -10,5 +10,9 @@
 ```
  docker-compose run --rm api rubocop
 ```
+## Run tests
+```
+  docker-compose run --rm api rake test
+```
 ## Docs
 * Postman collection: ./docs/koomnbea-hackathon.postman_collection.json

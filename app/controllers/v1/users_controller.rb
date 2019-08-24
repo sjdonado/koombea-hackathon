@@ -15,6 +15,8 @@ module V1
     def sign_in
       @user = User.find_by(email: user_params[:email])
 
+      raise ApiError.new(:bad_request, nil, ApiError.errors[2]) if @user.nil?
+
       token = JsonWebToken.encode(user_id: @user.id)
       user_response = UserSerializer.new(@user).as_json
       user_response[:api_key] = token
