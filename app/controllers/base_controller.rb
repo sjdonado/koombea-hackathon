@@ -2,6 +2,7 @@ module Api
   module V1
     class BaseController < ApplicationController
       include Concerns::Authenticator
+      include Concerns::ErrorHandler
 
       private
 
