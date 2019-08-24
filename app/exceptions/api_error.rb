@@ -6,7 +6,8 @@ class ApiError < StandardError
   end
 
   @errors = {
-    0 => 'Default error',
+    0 => 'Password and confirm_password does not match',
+    1 => 'Invalid token'
   }
 
   def initialize(status, error = nil, message = nil)
